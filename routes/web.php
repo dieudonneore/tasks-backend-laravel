@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('news', 'NewsController@index');
+
+Route::post('/news','App\Http\Controllers\NewsController@store');

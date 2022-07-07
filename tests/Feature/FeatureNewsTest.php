@@ -8,15 +8,10 @@ use Tests\TestCase;
 
 class FeatureNewsTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
+    use RefreshDatabase;
 
-        $response->assertStatus(200);
+    /** @test */
+    public function users_can_create_new_news(){
+
     }
 }

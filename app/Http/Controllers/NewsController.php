@@ -34,7 +34,13 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // to validate fields
+        request()->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'user_id' => 'required|string'
+        ]);
+
     }
 
     /**
