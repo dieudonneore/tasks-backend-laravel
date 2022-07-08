@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('content');
-            $table->string('user_id')->unique();
+            $table->string('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
