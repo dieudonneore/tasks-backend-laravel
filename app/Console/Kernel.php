@@ -15,7 +15,7 @@ class Kernel extends ConsoleKernel
      */
 
     protected $commands = [
-        '\App\Console\Commands\CronJob',//added
+        '\App\Console\Commands\CronJobToDeleteNewsOlderThan14Days',//added
     ];
 
     protected function schedule(Schedule $schedule)
