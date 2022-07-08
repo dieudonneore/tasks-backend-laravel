@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;//deleted
 use DB;//deleted
+use Carbon\Carbon;
 
 class CronJobToDeleteNewsOlderThan14Days extends Command
 {
@@ -39,8 +40,10 @@ class CronJobToDeleteNewsOlderThan14Days extends Command
      */
     public function handle()
     {
+        $currentDateTime = Carbon::now();
+        $newDateTime = Carbon::now()->addDays(13);
         \DB::table('news')
-        ->whereDate('created_at', '<', date('Y-m-d')+13)
+        ->whereDate('created_at', '<', $newDateTime)
         ->delete();//deleted
         $this->info('news deleted Successfully!');//deleted
     }
