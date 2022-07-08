@@ -12,6 +12,7 @@ class FeatureNewsTest extends TestCase
 
     /** @test */
     public function users_can_create_new_news(){
-        return $this->actingAs($user)->get();
+        $mynews=$this->actingAs($user)->get();
+        return $request->user().push($mynews);
     }
 }
