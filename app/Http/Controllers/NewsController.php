@@ -21,9 +21,17 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(array $data)
     {
-        //
+        $news = News::create([
+            'title' => $data['title'],
+            'content' => $data['content'],
+            'user_id' => $data['user_id'],
+        ]);
+
+        event(new NewsCreated($news));
+
+        return $news;
     }
 
     /**
